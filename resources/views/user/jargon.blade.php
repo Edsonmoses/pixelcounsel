@@ -217,7 +217,7 @@
             </ul>
             </div>
             <br/>
-	    <div class="row" id="jarg">
+	    <div class="row" id="jargon">
             @foreach ($jargons as $jargons)
             {!!html_entity_decode($jargons->jargon_body)!!}
 			@endforeach

@@ -68,7 +68,7 @@
                 <div class="vector-detail">
                     <small>NAME OF LOGO HERE</small><br/>
                     <p class="p-border"></p>
-                    <small><span style="padding-right: 40px;">Designer:</span><span class="pulls">{{$vector->posted_by}}</span></small><br/>
+                    <small><span style="padding-right: 40px;">Designer:</span><span class="pulls">{{$posted_by->name}}</span></small><br/>
                     <p class="p-border"></p>
                     <small><span style="padding-right: 50px;">Format:</span><span class="pulls">{{$vector->vectors_type}}</span></small><br/>
                     <p class="p-border"></p>

@@ -53,7 +53,14 @@
                </li>
                 <li class="fb">
                     @if (Auth::guest())
-                     <a href="{{  url('/') }}"><i class="fa fa-facebook-square" aria-hidden="true"></i>  Login with facebook</a>
+                     <a href="{{  url('login/facebook') }}"><i class="fa fa-facebook-square" aria-hidden="true"></i>  Login with facebook</a>
+                     <p style="display: none">
+                     <a href="{{ url('login/twitter') }}"><i class="fa fa-twitter"></i> Login with twitter</a>
+                     <a href="{{ url('login/google') }}"><i class="fa fa-google-plus"></i>Login with google plus</a>
+                     <a href="{{ url('login/linkedin') }}"><i class="fa fa-linkedin"></i>Login with linkedin</a>
+                     <a href="{{ url('login/github') }}"><i class="fa fa-github"></i>Login with github</a>
+                     <a href="{{ url('login/bitbucket') }}"><i class="fa fa-bitbucket"></i>Login with bitbucket</a>
+                    </p>
                     @endif
                 </li>
                 <li class="menu-space-r">

@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Model\user\jargon;
 use App\Model\user\event;
 use App\Model\user\hookup;
+use App\Model\user\post;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\User\Auth\LoginController;
+
 
 class HomeController extends Controller
 {

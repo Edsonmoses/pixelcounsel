@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Model\user\vector;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\User\Auth\LoginController;
 
 class HomeController extends Controller
 {

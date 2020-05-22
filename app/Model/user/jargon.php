@@ -9,12 +9,14 @@ class jargon extends Model
 {
     public function tags()
     {
-    	return $this->belongsToMany('App\Model\user\tag','post_tags')->withTimestamps();
+        //return $this->belongsToMany('App\Model\user\jargon_tag','jorgon_tags')->withTimestamps();
+        return $this->belongsToMany(jargon::class, 'jargon_tags', 'tag_id', 'jargons_id')->withPivot('created_at');
     }
 
     public function categories()
     {
-    	return $this->belongsToMany('App\Model\user\category','category_posts')->withTimestamps();;
+        //return $this->belongsToMany('App\Model\user\category','category_jorgon')->withTimestamps();
+        return $this->belongsToMany(jargon::class, 'category_jargon', 'category_id', 'jargons_id')->withPivot('created_at');
     }
 
     public function getRouteKeyName()

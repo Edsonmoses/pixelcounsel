@@ -58,7 +58,6 @@ class VectorController extends Controller
         if ($request->hasFile('vectors_image')) {
           $image = $request->file('vectors_image');
             $originalname = str_random(30).'.'.$image->getClientOriginalExtension();
-            //$image->move(public_path().'/uploads/EPSs/',$originalname);
             $image->move(storage_path().'/app/public/eps/',$originalname);
             $vectors->vectors_image = $originalname;
           }

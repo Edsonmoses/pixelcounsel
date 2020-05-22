@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\admin\admin;
-use App\Model\admin\profile;
+//use App\Model\admin\profile;
 use App\Model\admin\role;
 use Illuminate\Http\Request;
 
@@ -27,12 +27,6 @@ class UserController extends Controller
     public function index()
     {
         $users = admin::all();
-        return view('user.profile.profile',compact('users'));
-    }
-
-    public function indexs()
-    {
-        $users = profile::all();
         return view('admin.user.show',compact('users'));
     }
 

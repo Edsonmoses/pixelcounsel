@@ -1,14 +1,14 @@
 <template>
-    <div class="jargon-preview">
-        <a :href="jargon_slug">
-            <h2 class="jargon-title">
-                {{ jargon_title }}
+    <div class="hookup-preview">
+        <a :href="job_slug">
+            <h2 class="hookup-title">
+                {{company}}
             </h2>
-            <h3 class="jargon-subtitle">
-                {{ jargon_title }}
+            <h3 class="hookup-subtitle">
+                {{position}}
             </h3>
         </a>
-        <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> {{ created_at }} 
+        <p class="hookup-meta">Posted by <a href="#">Start Bootstrap</a> {{ created_at }} 
             <a href="" @click.prevent="likeIt">
                 <small>{{ likeCount }}</small>
                 <i class="fa fa-thumbs-up" v-if="likeCount == 0" aria-hidden="true"></i>
@@ -26,7 +26,7 @@
             }
         },
         props:[
-            'jargon_title','jargon_body','created_at','jargonId','login','likes','jargon_slug'
+            'company','position','created_at','hookupId','login','likes','job_slug'
         ],
         created(){
             this.likeCount = this.likes
@@ -34,7 +34,7 @@
         methods:{
             likeIt(){
                 if (this.login) {
-                    axios.jargon('/saveLike',{
+                    axios.hookup('/saveLike',{
                         id : this.postId
                     })
                       .then(response => {

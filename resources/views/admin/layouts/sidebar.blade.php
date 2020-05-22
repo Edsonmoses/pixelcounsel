@@ -26,6 +26,8 @@
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
             <li class=""><a href="{{ route('post.index') }}"><i class="fa fa-circle-o"></i> Posts</a></li>
+            <li class=""><a href="{{ route('hookup.index') }}"><i class="fa fa-circle-o"></i> Hookup</a></li>
+            <li class=""><a href="{{ route('jargon.index') }}"><i class="fa fa-circle-o"></i> Jargon</a></li>
             @can('posts.category',Auth::user())
             <li class=""><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> Categories</a></li>
             @endcan

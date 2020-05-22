@@ -35,7 +35,7 @@ let url = window.location.href;
 let pageNumber = url.split('=')[1];
 
 const apps = new Vue({
-    el: '#apps',
+    el: '#vector',
     data:{
     	vector:{},
     },
@@ -45,7 +45,7 @@ const apps = new Vue({
     	})
     	  .then(response => {
     	  	this.vector = response.data.data
-			// console.log(response);
+			//console.log(response);
 			
     	  })
     	  .catch(function (error) {
@@ -59,16 +59,40 @@ let url = window.location.href;
 let pageNumber = url.split('=')[1];
 
 const app = new Vue({
-    el: '#jarg',
+    el: '#jargon',
     data:{
-    	blog:{},
+    	jargon:{},
     },
     mounted(){
-    	axios.post('/getJargons',{
+    	axios.jargon('/getJargons',{
     		'page' : pageNumber
     	})
     	  .then(response => {
-    	  	this.blog = response.data.data
+    	  	this.jargon = response.data.data
+    	    // console.log(response);
+    	  })
+    	  .catch(function (error) {
+    	    console.log(error);
+    	  });
+	}
+	
+});
+
+Vue.component('hookups', require('./components/hookups.vue'));
+let url = window.location.href;
+let pageNumber = url.split('=')[1];
+
+const app = new Vue({
+    el: '#hookup',
+    data:{
+    	hookup:{},
+    },
+    mounted(){
+    	axios.hookup('/getHookups',{
+    		'page' : pageNumber
+    	})
+    	  .then(response => {
+    	  	this.hookup = response.data.data
     	    // console.log(response);
     	  })
     	  .catch(function (error) {

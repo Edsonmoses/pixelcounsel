@@ -1,4 +1,4 @@
 <h1>
-  Frame54 Page
+  {{ config('app.name', 'Pixel Counsel') }} Page
   <small>Lets create something awesome</small>
 </h1>

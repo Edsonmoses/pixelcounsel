@@ -9,12 +9,12 @@ class hookup extends Model
 {
     public function tags()
     {
-    	return $this->belongsToMany('App\Model\user\tag','post_tags')->withTimestamps();
+        return $this->belongsToMany(hookup::class, 'hookup_tags', 'tag_id', 'hookup_id')->withPivot('created_at');
     }
 
     public function categories()
     {
-    	return $this->belongsToMany('App\Model\user\category','category_posts')->withTimestamps();;
+    	return $this->belongsToMany('App\Model\user\category','category_hookup')->withTimestamps();;
     }
 
     public function getRouteKeyName()
