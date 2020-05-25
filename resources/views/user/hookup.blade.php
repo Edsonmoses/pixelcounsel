@@ -87,10 +87,10 @@
         <table class="table no-margin text-left table-bordered">
             @foreach ($hookups as $hookups)
               <tr>
-                <td class="company-hookup"><h3>{{ $hookups->company}}</h3></td>
-                <td class="position-hookup"><h3>{{ $hookups->position}}</h3><br/>
-                    <small>{{ $hookups->job_description}}</small></td>
-                <td class="location-hookup"><h3>{{ $hookups->job_locations}}</h3></td>
+                <td class="company-hookup"><h3>{!!strip_tags($hookups->company)!!}</h3></td>
+                <td class="position-hookup"><h3>{!!strip_tags($hookups->position)!!}</h3><br/>
+                    <small>{!!strip_tags( $hookups->job_description)!!}</small></td>
+                <td class="location-hookup"><h3>{!!strip_tags( $hookups->job_locations)!!}</h3></td>
               </tr>
 		       	@endforeach
           </tbody>

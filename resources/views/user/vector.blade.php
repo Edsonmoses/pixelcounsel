@@ -95,9 +95,9 @@
         <div class="row">
             <div class="col-lg-11 col-md-11 vector-download">
 
-                <input type="checkbox" id="test"/>
+                <input type="checkbox" id="toggle"/>
                 <span>I agree</span><br/>
-                <a class="disabled" href="{{ route('vector.download', $vector->id) }}" target="_blank"><small class="v-download disable"> Download | <i class="fa fa-arrow-down" aria-hidden="true"></i></small></a><br/>
+                <a  style="margin-bottom:10px;" class="disabled" id="to-toggle" data-href="{{ route('vector.download', $vector->id) }}" target="_blank"><small class="v-download disable"> Download | <i class="fa fa-arrow-down" aria-hidden="true"></i></small></a><br/>
             </div>
         </div>
         <div class="space-footer"></div>
@@ -109,18 +109,25 @@
 @section('footer')
 <script src="{{ asset('user/js/prism.js') }}"></script>
 <script>
-    /*var link = $("#to-toggle");
+var link = $("#to-toggle");
 $("#toggle").on("change", function() {
     if(this.checked) {
         link.attr("href", link.data("href"));
-        $('small').addClass("btns");
+        $('.v-download').addClass('btns');
+        $('.v-download').removeClass('disable');
     } else {
         link.removeAttr("href");
-        $('small').removeClass("btns");
+        $('.v-download').addClass('disable');
+        $('.v-download').removeClass('btns');
     }
-});*/
+});
+var elements = document.getElementsByTagName("INPUT");
+for (var inp of elements) {
+    if (inp.type === "checkbox")
+        inp.checked = false;
+}
 
-$('#test').change(function(){
+/*$('#test').change(function(){
     if($(this).is(":checked")) {
         $('.v-download').addClass('btns');
         $('.v-download').removeClass('disable');
@@ -128,6 +135,6 @@ $('#test').change(function(){
         $('.v-download').addClass('disable');
         $('.v-download').removeClass('btns');
     }
-});
+});*/
 </script>
 @endsection
