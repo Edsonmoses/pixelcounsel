@@ -1,5 +1,6 @@
 <template>
     <div class="post-preview">
+        <img class="post-image" src="{{ Storage::url($posts->image)}}" alt=""  width="100%" height="225">
         <a :href="slug">
             <h2 class="post-title">
                 {{ title }}
@@ -8,7 +9,7 @@
                 {{ subtitle }}
             </h3>
         </a>
-        <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> {{ created_at }} 
+        <p class="post-meta">Posted by <a href="#">Pixel Counsel</a> {{ created_at }} 
             <a href="" @click.prevent="likeIt">
                 <small>{{ likeCount }}</small>
                 <i class="fa fa-thumbs-up" v-if="likeCount == 0" aria-hidden="true"></i>
@@ -26,7 +27,7 @@
             }
         },
         props:[
-            'title','subtitle','created_at','postId','login','likes','slug'
+            'title','subtitle','created_at','postId','login','likes','slug','image','body'
         ],
         created(){
             this.likeCount = this.likes

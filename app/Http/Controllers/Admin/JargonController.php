@@ -73,7 +73,7 @@ class JargonController extends Controller
         $jargon = new jargon;
         $jargon->jargon_image = $imageName;
         $jargon->jargon_title = $request->jargon_title;
-        $jargon->jargon_slug = $request->jargon_slug;
+        $jargon->jargon_slug = str_slug($request->get('jargon_title'), '-');
         $jargon->jargon_body = $request->jargon_body;
         $jargon->status = $request->status;
         $jargon->posted_by = Auth::user()->id;
@@ -140,7 +140,7 @@ class JargonController extends Controller
         $jargon = jargon::find($id);
         $jargon->jargon_image = $imageName;
         $jargon->jargon_title = $request->jargon_title;
-        $jargon->jargon_slug = $request->jargon_slug;
+        $jargon->jargon_slug = str_slug($request->get('jargon_title'), '-');
         $jargon->jargon_body = $request->jargon_body;
         $jargon->status = $request->status;
         $jargon->tags()->sync($request->tags);

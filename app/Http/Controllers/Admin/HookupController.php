@@ -70,7 +70,7 @@ class HookupController extends Controller
        
         $hookup = new hookup;
         $hookup->company = $request->company;
-        $hookup->job_slug = $request->job_slug;
+        $hookup->job_slug = str_slug($request->get('company'), '-');
         $hookup->position = $request->position;
         $hookup->job_description = $request->job_description;
         $hookup->job_locations = $request->job_locations;
@@ -136,7 +136,7 @@ class HookupController extends Controller
         
         $hookup = hookup::find($id);
         $hookup->company = $request->company;
-        $hookup->job_slug = $request->job_slug;
+        $hookup->job_slug = str_slug($request->get('company'), '-');;
         $hookup->position = $request->position;
         $hookup->job_description = $request->job_description;
         $hookup->job_locations = $request->job_locations;

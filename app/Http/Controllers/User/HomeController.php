@@ -26,13 +26,13 @@ class HomeController extends Controller
      public function tag(tag $tag)
     {
         $posts = $tag->posts();
-        return view('user.blogs',compact('posts'));
+        return view('user.blog',compact('posts'));
     }
 
     public function category(category $category)
     {
         $posts = $category->posts();
-        return view('user.blogs',compact('posts'));
+        return view('user.blog',compact('posts'));
     }
    
    
@@ -41,6 +41,6 @@ class HomeController extends Controller
     public function blog(Request $request)
     {
         $posts = post::where('status',1)->orderBy('created_at','DESC')->paginate(2000000);
-    	return view('user.blogs',compact('posts'));
+    	return view('user.blog',compact('posts'));
     }
 }

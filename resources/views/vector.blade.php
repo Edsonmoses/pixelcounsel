@@ -2,7 +2,7 @@
 
 @section('vector-active',asset('uploads/img/vector-active.png'))
 @section('head')
-
+<link rel="stylesheet" href="{{ asset('admin/plugins/select2/select2.min.css') }}">
 @endsection
 @section('title','VECTOR LOGOS')
 @section('sub-heading','Online vector logo collection of brands in Africa')
@@ -173,20 +173,18 @@
     
 @endsection
 @section('footer')
-<script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('admin/plugins/select2/select2.full.min.js') }}"></script>
 <script src="{{  asset('admin/ckeditor/ckeditor.js') }}"></script>
 <script>
-  $(function () {
-    // Replace the <textarea id="editor1"> with a CKEditor
-    // instance, using default configuration.
-    CKEDITOR.replace('editor1');
-    //bootstrap WYSIHTML5 - text editor
-    $(".textarea").wysihtml5();
-  });
+    $(function () {
+      // Replace the <textarea id="editor1"> with a CKEditor
+      // instance, using default configuration.
+      CKEDITOR.replace('editor1');
+    });
 </script>
 <script>
-$(document).ready(function() {
-  $(".select2").select2();
-});
+  $(document).ready(function() {
+    $(".select2").select2();
+  });
+</script>
 @endsection

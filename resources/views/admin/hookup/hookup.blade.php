@@ -42,7 +42,7 @@
 
                 <div class="form-group">
                   <label for="job_slug">Hookup Slug</label>
-                  <input type="text" class="form-control" id="job_slug" name="job_slug" placeholder="Hookup Slug">
+                  <input type="text" class="form-control" id="job_slug" name="job_slug" disabled placeholder="Hookup Slug">
                 </div>
 
                 <div class="form-group">

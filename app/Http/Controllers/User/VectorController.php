@@ -27,6 +27,7 @@ class VectorController extends Controller
 
     public function vector(vector $vector)
     {
+      $vectors = vector::find($id);
     	return view('user.vector',compact('vector'));
     }
 

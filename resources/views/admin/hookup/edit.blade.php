@@ -43,7 +43,7 @@
 
                 <div class="form-group">
                   <label for="job_slug">Hookup Slug</label>
-                  <input type="text" class="form-control" id="job_slug" name="job_slug" placeholder="Hookup Slug" value="{{ $hookup->job_slug }}">
+                  <input type="text" class="form-control" id="job_slug" name="job_slug" placeholder="Hookup Slug" disabled value="{{ $hookup->job_slug }}">
                 </div>
 
                 <div class="form-group">

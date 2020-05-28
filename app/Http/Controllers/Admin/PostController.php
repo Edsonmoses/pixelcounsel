@@ -74,7 +74,7 @@ class PostController extends Controller
         $post->image = $imageName;
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
-        $post->slug = $request->slug;
+        $post->slug = str_slug($request->get('title'), '-');
         $post->body = $request->body;
         $post->status = $request->status;
         $post->posted_by = Auth::user()->id;
@@ -138,7 +138,7 @@ class PostController extends Controller
         $post->image = $imageName;
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
-        $post->slug = $request->slug;
+        $post->slug = str_slug($request->get('title'), '-');
         $post->body = $request->body;
         $post->status = $request->status;
         $post->visit_count = $request->visit_count;

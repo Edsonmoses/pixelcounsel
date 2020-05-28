@@ -1,4 +1,4 @@
-@extends('user/layouts/app')
+@extends('user/app')
 
 @section('bg-img',Storage::disk('local')->url($post->image))
 @section('head')
@@ -8,6 +8,21 @@
 @section('sub-heading',$post->subtitle)
 
 @section('main-content')
+<!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url(@yield('bg-img'))">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>@yield('title')</h1>
+                        <hr class="small">
+                        <span class="subheading">@yield('sub-heading')</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 <!-- Post Content -->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -20,43 +35,24 @@
 <article>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 download-image">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <small>Created at {{ $post->created_at }}</small>
+                @foreach ($post->categories as $category)
+                <small class="pull-right" style="margin-right: 20px">  
+                    <a href="{{ route('category',$category->slug) }}">{{ $category->name }}</a>
+                </small>
+                @endforeach
+                {!! htmlspecialchars_decode($post->body) !!}
 
-				<img src= "{{ Storage::disk('local')->url($post->image)}}" alt="">
+                {{-- Tag clouds --}}
+                <h3>Tag Clouds</h3>
+                @foreach ($post->tags as $tag)
+                <a href="{{ route('tag',$tag->slug) }}"><small class="pull-left" style="margin-right: 20px;border-radius: 5px;border: 1px solid gray;padding: 5px;">  
+                                    {{ $tag->name }}
+                                </small></a>
+                @endforeach
             </div>
-            <div class="col-lg-4 col-md-4">
-                
-                <hr/>
-                <div class="download">
-                    <a href="{{ route('photo.download', $post->id) }}" target="_blank"><small class="btns"><i class="fa fa-download" aria-hidden="true"></i> Free Download </small></a><br/>
-                </div>
-                <div class="license">
-                    <a href="#"><small>Frame54 License</small></a><br/>
-                    <small>Free for commercial use </small><br/>
-                    <small>No attribution required </small><br/>
-                </div>
-                <div class="like-us">
-                    <small>Like Frame54 on Facebook</small><br/>
-                </div>
-                <div class="related-images">
-                <small>Related Images</small><br/>
-                </div>
-                <div class="item-deitals">
-                    <small>Image type  <span class="pull-right">{{substr ($post->image, -4)}}</span></small><br/>
-                    <small>Resolution  <span class="pull-right"></span></small><br/>
-                    <small>Created       <span class="pull-right">{{ \Carbon\Carbon::parse($post->created_at)->format('d/M/Y') }}<span></small><br/>
-                    <small>Uploaded      <span class="pull-right">{{ \Carbon\Carbon::parse($post->updated_at)->format('d/M/Y') }}<span></small><br/>
-                    <small>Category  
-                         @foreach ($post->categories as $category)
-                         <span class="pull-right"> 
-                            <a href="{{ route('category',$category->slug) }}">{{ $category->name }}</a>
-                        </span>
-                        @endforeach
-                    </small><br/>
-                    <small>Views <span class="pull-right">{{$post->visit_count}}</span></small><br/>
-                    <small>Downloads <span class="pull-right">{{$post->downloads}}</span></small><br/>
-                </div>
-            </div>
+            <div class="fb-comments" data-href="{{ Request::url() }}" data-numposts="5"></div>
         </div>
     </div>
 </article>
